@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CF PAY Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Calculadora CFPAY</a>
+
+
+</nav>
+
+<div class="card">
+    <div class="card-header">
+        Introduce los valores
+    </div>
+    <div class="card-body">
+        <div class="form-group">
+            <label for="vghs">Cantidad de VGHS</label>
+            <input type="number" class="form-control" id="vghs" placeholder="VGHS" value="1000" onkeyup="update()">
+        </div>
+        <div class="form-group">
+            <label for="profit">% Staking</label>
+            <input type="text" class="form-control" id="profit" placeholder="profit" value="15" onkeyup="update()">
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        Resultados
+    </div>
+    <div class="card-body">
+        <p><b>VGHS</b>: <span id="r-vghs"></span></p>
+        <p><b>Beneficios diarios</b>: <span id="diario"></span></p>
+        <p><b>Beneficios mensuales</b>: <span id="mensuales"></span></p>
+        <p><b>Beneficios anuales</b>: <span id="anuales"></span></p>
+    </div>
+    <div class="card-footer">
+       Esta calculadora esta creada por usuarios de CF y son datos estimádos según la información que tenemos hasta ahora.
+    </div>
+</div>
+</body>
+
+<style>
+    .card{
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 20px;
+    }
+</style>
+
+<script>
+    var vghs = $('#vghs').val();
+    document.getElementById('r-vghs').innerHTML = vghs;
+    var profit = $('#profit').val();
+    var parse = profit/100;
+    var diario = vghs*0.45*parse/365;
+    var mensual = diario*30;
+    var anual = vghs*0.45*parse;
+
+    document.getElementById('diario').innerHTML = diario.toFixed(2) + " USD";
+    document.getElementById('mensuales').innerHTML = mensual.toFixed(2) + " USD";
+    document.getElementById('anuales').innerHTML = anual.toFixed(2) + " USD";
+    function update(){
+        var vghs = $('#vghs').val();
+        document.getElementById('r-vghs').innerHTML = vghs;
+        var profit = $('#profit').val();
+        var parse = profit/100;
+        var diario = vghs*0.45*parse/365;
+        var mensual = diario*30;
+        var anual = vghs*0.45*parse;
+
+        document.getElementById('diario').innerHTML = diario.toFixed(2) + " USD";
+        document.getElementById('mensuales').innerHTML = mensual.toFixed(2) + " USD";
+        document.getElementById('anuales').innerHTML = anual.toFixed(2) + " USD";
+
+
+
+    }
+</script>
+</html>
