@@ -60,16 +60,16 @@
 
 <script>
     var vghs = $('#vghs').val();
-    document.getElementById('r-vghs').innerHTML = vghs;
+    document.getElementById('r-vghs').innerHTML = Intl.NumberFormat().format(vghs);
     var profit = $('#profit').val();
     var parse = profit/100;
     var diario = vghs*0.45*parse/365;
     var mensual = diario*30;
     var anual = vghs*0.45*parse;
 
-    document.getElementById('diario').innerHTML = diario.toFixed(2) + " USD";
-    document.getElementById('mensuales').innerHTML = mensual.toFixed(2) + " USD";
-    document.getElementById('anuales').innerHTML = anual.toFixed(2) + " USD";
+    document.getElementById('diario').innerHTML = Intl.NumberFormat().format(diario); + " USD";
+    document.getElementById('mensuales').innerHTML = Intl.NumberFormat().format(mensual); + " USD";
+    document.getElementById('anuales').innerHTML = Intl.NumberFormat().format(anual); + " USD";
     function update(){
         var vghs = $('#vghs').val();
         document.getElementById('r-vghs').innerHTML = Intl.NumberFormat().format(vghs);
@@ -79,10 +79,9 @@
         var mensual = diario*30;
         var anual = vghs*0.45*parse;
 
-        document.getElementById('diario').innerHTML = diario.toFixed(2) + " USD";
-        document.getElementById('mensuales').innerHTML = mensual.toFixed(2) + " USD";
-        document.getElementById('anuales').innerHTML = anual.toFixed(2) + " USD";
-
+        document.getElementById('diario').innerHTML = Intl.NumberFormat().format(diario); + " USD";
+        document.getElementById('mensuales').innerHTML = Intl.NumberFormat().format(mensual); + " USD";
+        document.getElementById('anuales').innerHTML = Intl.NumberFormat().format(anual); + " USD";
 
 
     }
