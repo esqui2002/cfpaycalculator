@@ -72,7 +72,7 @@
     document.getElementById('anuales').innerHTML = anual.toFixed(2) + " USD";
     function update(){
         var vghs = $('#vghs').val();
-        document.getElementById('r-vghs').innerHTML = vghs;
+        document.getElementById('r-vghs').innerHTML = Intl.NumberFormat().format(vghs);
         var profit = $('#profit').val();
         var parse = profit/100;
         var diario = vghs*0.45*parse/365;
